@@ -77,7 +77,7 @@ def main():
         print("When dequeue it is now:", dequeue())   
         print("after dequeue, queue:", queue, "The front is:", front, "The rear is:", rear)
         size()
-        x=int(input('add a number to a queue'))
+        x=int(input('add a number to a queue: '))
         enqueue(x)
         print('The new front is now:',peek())
         print('After dequeue:',dequeue())
