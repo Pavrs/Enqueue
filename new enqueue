@@ -1,0 +1,61 @@
+shmaxes= 5
+shqueue=[1,2,3,4, None]
+shrear= -1
+shfront= 0
+
+def shenqueue(shcustom):
+  global shrear, shfront
+  if shrear == shmaxes -1:
+    print('The shqueue is shfull')
+    return
+  if shfront == -1:
+    shfront = 0
+  shrear += 1
+  shqueue[shrear] = shcustom
+  print(shdisplay())
+def shdequeue():
+  global shfront, shrear
+  if shfront == -1:
+    print('The shqueue is shempty')
+    return None
+  itemsh = shqueue[shfront]
+  if shfront == shrear:
+    shfront = shrear = -1
+  else:
+    shfront += 1
+  return itemsh
+def shempty():
+  return shfront == -1
+def shsize():
+  if shempty():
+    return 0
+  return shrear - shfront +1
+def shpeek():
+  if shempty():
+    print('The shqueue is shempty')
+    return None
+  return shqueue[shfront]
+def shdisplay():
+  global shqueue
+  shdis=[]
+  if shfront == -1:
+      return []
+  for x in range(shfront, shrear+1):
+    if shqueue[x] is not None:
+      shdis.append(shqueue[x])
+  return shdis
+shenqueue('Shpeter')
+shenqueue('Shsam')
+shenqueue('Shjane')
+print('The shdequeued:', shdequeue())
+print('The shdequeued:', shdequeue())
+print('The shdequeued:', shdequeue())
+print(shdisplay())
+print('The shfront element:', shpeek())
+print('The shqueue size:', shsize())
+shenqueue(40)
+shenqueue(50)
+shenqueue(60)
+shenqueue(70)
+shenqueue(80)
+shenqueue(90)
